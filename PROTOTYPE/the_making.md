@@ -19,3 +19,6 @@
 - `LHS branch` is assigned `0`
 - `RHS branch` is assigned `1`
 ---
+
+### NOTES
+- `namedtuple` is a *leight weigth immutable obj*
