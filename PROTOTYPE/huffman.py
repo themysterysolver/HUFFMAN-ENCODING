@@ -30,9 +30,9 @@ def decode_str(encode_str,codebook):
     reverse_codebook={val:key for key,val in codebook.items()}
     temp=""
     result=""
-    for c in reverse_codebook:
+    for c in encode_str:
         temp+=c
-        if c in reverse_codebook:
+        if temp in reverse_codebook:
             result+=reverse_codebook[temp]
             temp=""
     return result
@@ -43,7 +43,7 @@ if __name__=="__main__":
     root=generate_huffman_tree(input_string)
     codebook=create_codebook(root,"",{})
     encoded_text_str=encode_str(codebook,input_string)
-    decoded_text_str=decode_str(encode_str,codebook)
+    decoded_text_str=decode_str(encoded_text_str,codebook)
 
     print("THE INPYT STRING IS:",input_string)
     print("THE ROOT:",root)
