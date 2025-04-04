@@ -1,4 +1,4 @@
-import heapq,json
+import heapq
 from collections import namedtuple,Counter
 
 class Node(namedtuple("Node",("char","freq","left","right"))):

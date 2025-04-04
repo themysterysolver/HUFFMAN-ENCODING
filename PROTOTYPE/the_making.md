@@ -22,3 +22,5 @@
 
 ### NOTES
 - `namedtuple` is a *leight weigth immutable obj*
+-  `1byte` is a character,each **ASCII** contribute to `1byte`.This is the file size in a `.txt` file.
+-  
