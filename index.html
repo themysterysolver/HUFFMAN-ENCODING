@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUFFMAN ENCODING</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="text-center">HUFFMAN ENCODING</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <form class="d-flex flex-column ">
+                    <label for="encode_l"><h3>ENCODE THE FILE</h3></label>
+                    <input type="file" id="encode_l">
+                    <button type="button" onclick="encode()">ENCODE</button>
+                </form>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <form class="d-flex flex-column" >
+                    <label for="decode_l"><h3>DECODE THE FILE</h3></label>
+                    <input type="file" id="decode_l">
+                    <button type="submit">DECODE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+</body>
+</html>
