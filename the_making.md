@@ -10,6 +10,14 @@
         - lengthBuffer of codebook
         - codeBokBUffer
         - binaryBuffer
+---
 ```
 | Padding (1 byte) | Codebook length (2 bytes) | Codebook bytes | Encoded binary bytes |
 ```
+---
+## Blob
+- It is an API that holds data
+- It is like virtual file object in memory
+- `const url = URL.createObjectURL(blob);` generates local URL 
+- we cretate a link for it and then click it
+----
