@@ -116,3 +116,57 @@ function encode(){
         reader.readAsText(file)
     }
 }
+function write_txt_file(decoded_string, newFname) {
+    const blob=new Blob([decoded_string],{type:"text/plain" });
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;
+    a.download=newFname;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function decode(){
+    console.log("DECODE CLICKED!!")
+    const encode_ele=document.getElementById("decode_l");
+    const file=encode_ele.files[0];
+    console.log(file)
+    if(file){
+        let ogfname=file.name;
+        if(ogfname.substring(ogfname.lastIndexOf("."))!==".bin"){
+            alert("Decode file should of .bin format!");
+            return;
+        }
+        let baseName=ogfname.substring(0,ogfname.lastIndexOf("."))||ogfname;
+        let newFname=baseName+".txt";
+        const reader=new FileReader();
+
+        reader.onload=function(e){
+            const arrayBuffer=e.target.result;
+            const dataView=new DataView(arrayBuffer);
+            const padding=dataView.getUint8(0);
+            const codebookSize=dataView.getInt16(1,true);
+            
+            const codebookBytes=new Uint8Array(arrayBuffer.slice(3,3+codebookSize));
+
+            const decoder=new TextDecoder("utf-8");
+            const codebookStr=decoder.decode(codebookBytes);
+            const codebook=JSON.parse(codebookStr);
+
+            const byteData=new Uint8Array(arrayBuffer.slice(3+codebookSize));
+            let encodedBinStr=""
+            for(let byte of byteData){
+                encodedBinStr+=byte.toString(2).padStart(8,"0");
+            }
+            if(padding>0){
+                encodedBinStr=encodedBinStr.slice(0,-padding);
+            }
+            let decoded_string=decode_the_string(encodedBinStr,codebook);
+            console.log(decoded_string);
+            write_txt_file(decoded_string,newFname);
+
+            console.log("FILE DOWNLAODED!")
+        }
+        reader.readAsArrayBuffer(file);
+    }
+}
