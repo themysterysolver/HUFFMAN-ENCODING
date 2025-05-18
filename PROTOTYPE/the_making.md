@@ -1,7 +1,9 @@
 ### HUFFMAN CODING
 - It's a *greedy* algorithm.
 - Here we will compress the given string reducing the cost of transmission.
+
 <br>
+
 - During transmission we will transfer it in  `ASCII` and ASCII is represnted in  bytes. ie. **8bits** == `1bit`
 - A string `s` of length `n` then the **cost** will be ***n\*8***
 - `ASCII` is used when we have *128 characters* when we have fewer than them,then we can use *huffman coding* to reduce the encoded string making it variable size encoding/fixed size encoding.
